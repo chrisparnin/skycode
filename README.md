@@ -8,8 +8,11 @@ Example ansible scripts for common tasks.
 * Install some python modules, in order to resolve [some issues with dopy](https://github.com/ansible/ansible-modules-core/issues/2509).
 
 ```bash
-sudo apt-get install python-pip
-sudo pip install -r requirements.txt
+sudo apt-get update
+# Basic dev deps
+sudo apt-get -y install git make vim python-dev python-pip libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-devsudo 
+# Ansible and dopy
+pip install -r requirements.txt
 ```
 
 ### Provisioning tasks
