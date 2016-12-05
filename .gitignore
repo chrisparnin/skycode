@@ -1,2 +1,4 @@
 *.retry
 *.ini
+*.my.cnf
+inventory
