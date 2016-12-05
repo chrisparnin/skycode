@@ -1,0 +1,17 @@
+---
+- hosts: dbservers 
+
+  tasks: 
+    - name: Ensure example database exists.
+      mysql_db: name=exampledb state=present
+      # This will only import data when first created. Otherwise, should not overwrite existing database.
+      notify: 
+        - copy example schema
+        - import example database
+
+  handlers:
+    # Copy database dump file to remote host
+    - name: copy example schema         
+      copy: src=templates/example-schema.sql dest=/tmp
+    - name: import example database
+      mysql_db: name=exampledb state=import target=/tmp/example-schema.sql

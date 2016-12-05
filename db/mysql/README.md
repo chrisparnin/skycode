@@ -17,8 +17,14 @@ root_db_password="****"
 
 ### Running playbook.
 
-The following playbook will install necessary packages for mysql server and secure the db for the root user.
+The [following playbook](mysql.yml) will install necessary packages for mysql server and secure the db for the root user.
 
 ```
 ansible-playbook -i inventory mysql.yml
+```
+
+[This playbook](mysql-tables.yml) will create a new database and create tables as defined by this [sql file](templates/example-schema.sql). It is also possible to restore a full db dump compressed as gzip/bzip2. 
+
+```
+ansible-playbook -i inventory mysql-tables.yml 
 ```
