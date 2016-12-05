@@ -23,7 +23,7 @@ The [following playbook](mysql.yml) will install necessary packages for mysql se
 ansible-playbook -i inventory mysql.yml
 ```
 
-[This playbook](mysql-tables.yml) will create a new database and create tables as defined by this [sql file](templates/example-schema.sql). It is also possible to restore a full db dump compressed as gzip/bzip2. 
+[This playbook](mysql-tables.yml) will create a new database and create tables as defined by this [sql file](templates/example-schema.sql) on an existing mysql server. It is also possible to restore a full db dump compressed as gzip/bzip2. 
 
 ```
 ansible-playbook -i inventory mysql-tables.yml 
