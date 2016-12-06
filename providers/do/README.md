@@ -4,6 +4,7 @@ See the following for a [full guide](https://www.digitalocean.com/community/tuto
 
 ### Preqs
 
+* A ssh key. [See guide](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets) if you need to make new one.
 * A read and write [Personal Access Token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2#how-to-generate-a-personal-access-token) for the API. 
 * Create `do.ini` with your Personal Access Token filled in.
 ```ini
