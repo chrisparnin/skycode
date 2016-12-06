@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+
+  tasks: 
+    - name: get stackapps
+      get_url: url=http://archive.org/download/stackexchange/stackapps.com.7z dest=/data/data/archive/stackapps.com.7z
+      delegate_to: 127.0.0.1
