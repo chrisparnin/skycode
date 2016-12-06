@@ -15,13 +15,15 @@ root_db_password="****"
 ```
 * Set user name and password in .my.cnf. You can use example in templates/root/.my.cnf-example 
 
-### Running playbook.
+### Installing mysql and setting up root user.
 
 The [following playbook](mysql.yml) will install necessary packages for mysql server and secure the db for the root user.
 
 ```
 ansible-playbook -i inventory mysql.yml
 ```
+
+### Creating database and tables
 
 [This playbook](mysql-tables.yml) will create a new database and create tables as defined by this [sql file](templates/example-schema.sql) on an existing mysql server. It is also possible to restore a full db dump compressed as gzip/bzip2. 
 
