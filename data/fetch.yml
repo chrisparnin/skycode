@@ -11,12 +11,12 @@
     #- name: Create bigger tmp directory
     #  file: path={{download_tmp_directory}} state=directory
 
-    # get_url is pretty flaky, uses tmp and copies to dest, doesn't work well with really big files, needs a timeout (which may change based on internet connection), and is slow to check if file already is downloaded.
+    # get_url is pretty flaky, uses tmp and copies to dest, doesn't work well with really big files, needs a timeout (which may change based on internet connection), and can't check if file already is downloaded if a directory is given as a dest (with_items).
     # Using plain wget with "creates" option instead: http://stackoverflow.com/questions/22469880/how-can-i-check-if-file-has-been-downloaded-in-ansible
 
     - name: get stack overflow data
       #get_url: url=http://archive.org/download/stackexchange/{{item}} dest={{archive_directory}}  tmp_dest={{download_tmp_directory}} timeout=10000
-      shell: wget -P {{archive_directory}} http://archive.org/download/stackexchange/{{item}} creates={{archive_directory}}/{{item}}
+      shell: wget -nv -P {{archive_directory}} http://archive.org/download/stackexchange/{{item}} creates={{archive_directory}}/{{item}}
       with_items: 
       - stackoverflow.com-Badges.7z
       - stackoverflow.com-Comments.7z
