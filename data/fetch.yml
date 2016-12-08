@@ -16,6 +16,7 @@
 
     - name: get stack overflow data
       #get_url: url=http://archive.org/download/stackexchange/{{item}} dest={{archive_directory}}  tmp_dest={{download_tmp_directory}} timeout=10000
+      # wget needs to run with -nv or -q otherwise, output for progress will cause memory errors!
       shell: wget -nv -P {{archive_directory}} http://archive.org/download/stackexchange/{{item}} creates={{archive_directory}}/{{item}}
       with_items: 
       - stackoverflow.com-Badges.7z
