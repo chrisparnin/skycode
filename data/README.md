@@ -16,7 +16,7 @@ When building a data analysis pipeline, fetching raw and large data dumps can be
 
 [This playbook](fetch.yml) demonstrates how to download the Stack Overflow datasets with ansible, which are nearly dozens of gigs compressed. Although there is a `get_url` module for ansible, it has some issues with very large files, so we just use wget instead. The `creates=` argument will skip redownloading the file if destination already exists.
 
-```
+```yml
     - name: get stack overflow data
       # wget needs to run with -nv or -q otherwise, output for progress will cause memory errors!
       shell: wget -nv -P {{archive_directory}} http://archive.org/download/stackexchange/{{item}} creates={{archive_directory}}/{{item}}
