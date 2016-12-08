@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+
+  vars: 
+    - archive_directory: /data/data/archive
+    - stackoverflow_data: /data/data/SO
+  tasks:
+    - name: Make {{stackoverflow_data}} directory
+      file: path={{stackoverflow_data}} state=directory
+
+    - name: "Ensure 7zip is installed"
+      apt: name=p7zip-full state=present allow_unauthenticated=yes
+      #sudo: true
+
+    - name: unarchive 7z files and store in {{stackoverflow_data}}
+      command: >
+        7za e {{item}} -o{{stackoverflow_data}}
+        creates={{stackoverflow_data}}/{{item|basename|regex_replace('\.7z','')|regex_replace('stackoverflow\.com\-','')}}.xml
+      with_fileglob: 
+        - "{{archive_directory}}/*.7z"
