@@ -1,7 +1,7 @@
--- @variables is defined by executing script
-LOAD XML LOCAL INFILE  @import_users_xml_path
-INTO TABLE Users(AccountId, Reputation, CreationDate, DisplayName, LastAccessDate, 
-                 WebsiteUrl, Location, AboutMe, Views, UpVotes, DownVotes); 
+-- variables are defined by executing ansible script
+LOAD XML LOCAL INFILE '{{data_archive_directory}}/Users.xml'
+INTO TABLE Users
+ROWS IDENTIFIED BY '<row>'; 
 /*
 <row Id="9" Reputation="11122" CreationDate="2008-07-31T21:35:26.517" DisplayName="Kevin Dente" LastAccessDate="2016-0
 8-25T23:58:55.527" WebsiteUrl="http://weblogs.asp.net/kdente" Location="Oakland, CA" AboutMe="&lt;p&gt;Independent softw

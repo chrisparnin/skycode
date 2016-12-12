@@ -1,3 +1,4 @@
 [client]
 user=mysqluser
 password=mysqlpass
+local_infile=1

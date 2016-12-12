@@ -14,7 +14,18 @@ CREATE TABLE Posts
 
 CREATE TABLE Users
 (
-    id int, 
-    created_at TIMESTAMP, 
-    name varchar(255)
+    Id int PRIMARY KEY,
+    Reputation int,
+    CreationDate TIMESTAMP,
+    DisplayName varchar (40),
+    LastAccessDate TIMESTAMP,
+    WebsiteUrl varchar (200),
+    Location varchar (100),
+    AboutMe text,
+    Views int,
+    UpVotes int,
+    DownVotes int,
+    ProfileImageUrl varchar (200),
+    Age int,
+    AccountId int
 );
