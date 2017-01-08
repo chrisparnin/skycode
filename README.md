@@ -10,7 +10,7 @@ Example ansible scripts for common tasks.
 ```bash
 sudo apt-get update
 # Basic dev deps
-sudo apt-get -y install git make vim python-dev python-pip libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-devsudo 
+sudo apt-get -y install git make vim python-dev python-pip libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
 # Ansible and dopy
 pip install -r requirements.txt
 ```
